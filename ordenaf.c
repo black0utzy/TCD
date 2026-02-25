@@ -107,7 +107,7 @@ void marge(int *ini, int *fim){
     int *slow = ini;
     int *fast;
 
-    // A Corrida
+    
     for(fast = ini+1; fim >= fast; fast += 2){
         if(fast+2 <= fim){
             slow++;
@@ -115,9 +115,10 @@ void marge(int *ini, int *fim){
     }
    
 
-   tesoura(ini, slow);
-   tesoura(slow+1, fim);
+   marge(ini, slow);
+   marge(slow+1, fim);
 
 
-   costura(ini, slow, fim); 
+   margesort(ini, slow, fim); 
+
 }
