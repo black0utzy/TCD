@@ -56,7 +56,7 @@ void insertSort(int vetor[],int size)
     }
 }
 
-void margesort(int *ini, int *slow, int *fim){
+void mergesort(int *ini, int *slow, int *fim){
     int tamanho = (fim-ini)+1;
     int *temp = malloc(tamanho * sizeof(int));
 
@@ -99,7 +99,7 @@ void margesort(int *ini, int *slow, int *fim){
     free(temp); 
 }
 
-void marge(int *ini, int *fim){
+void merge(int *ini, int *fim){
     if(ini >= fim){
         return;
     }
@@ -115,9 +115,10 @@ void marge(int *ini, int *fim){
     }
    
 
-   tesoura(ini, slow);
-   tesoura(slow+1, fim);
+   merge(ini, slow);
+   merge(slow+1, fim);
 
 
-   costura(ini, slow, fim); 
+   mergesort(ini, slow, fim); 
+
 }
